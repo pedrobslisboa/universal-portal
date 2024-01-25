@@ -1,0 +1,10 @@
+(include_subdirs unqualified)
+
+(library
+ (name shared_js_demo)
+ (modes melange)
+ (libraries reason-react universal-portal.shared_js)
+ (preprocess
+  (pps melange.ppx reason-react-ppx server-reason-react.browser_ppx -js)))
+
+(copy_files# "../native/*.re")
