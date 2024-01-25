@@ -1,0 +1,13 @@
+(test
+ (name test)
+ (modules :standard)
+ (libraries
+  alcotest
+  fmt
+  str
+  universal-portal.server
+  universal-portal.shared_native
+  server-reason-react.react
+  server-reason-react.reactDom)
+ (preprocess
+  (pps server-reason-react.ppx)))

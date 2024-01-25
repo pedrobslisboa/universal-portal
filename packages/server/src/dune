@@ -1,0 +1,13 @@
+(library
+ (name server)
+ (wrapped false)
+ (public_name universal-portal.server)
+ (libraries
+  lambdasoup
+  server-reason-react.react
+  server-reason-react.reactDom
+  universal-portal.shared_native)
+ (flags
+  (:standard -w -30))
+ (preprocess
+  (pps server-reason-react.ppx server-reason-react.browser_ppx)))
