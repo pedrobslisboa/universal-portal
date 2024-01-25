@@ -1,0 +1,4 @@
+(dirs packages demo)
+
+(documentation
+ (package universal-portal))
