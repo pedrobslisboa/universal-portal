@@ -1,9 +1,9 @@
 <p align="center">
-  <a  href="https://github.com/pedrobslisboa/universal-reason-portal#gh-light-mode-only">
+  <a  href="https://github.com/pedrobslisboa/universal-portal#gh-light-mode-only">
     <img width="80%" style="min-width:500px" src="./lightmode.png" alt="Universal Portal" />
   </a>
 
-  <a  href="https://github.com/pedrobslisboa/universal-reason-portal#gh-dark-mode-only">
+  <a  href="https://github.com/pedrobslisboa/universal-portal#gh-dark-mode-only">
     <img width="80%" style="min-width:500px"  src="./darkmode.png" alt="Universal Portal" />
   </a>
 </p>
@@ -25,7 +25,7 @@ This project was inspired by [server-reason-react](https://github.com/ml-in-barc
 ## Installation
 
 ```sh
-opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-reason-portal#main"
+opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-portal#main"
 ```
 
 ## Usage

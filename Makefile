@@ -30,6 +30,7 @@ clean: ## Clean artifacts
 .PHONY: test
 test: ## Run the unit tests
 	$(DUNE) build @runtest
+	yarn jest
 
 .PHONY: test-watch
 test-watch: ## Run the unit tests in watch mode
