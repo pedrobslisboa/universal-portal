@@ -25,7 +25,7 @@ This project was inspired by [server-reason-react](https://github.com/ml-in-barc
 ## Installation
 
 ```sh
-opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-portal#main"
+opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-portal.git#main"
 ```
 
 ## Usage
