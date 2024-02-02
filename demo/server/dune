@@ -5,11 +5,12 @@
   lambdasoup
   server-reason-react.react
   server-reason-react.reactDom
-  universal-portal.server
+  server-reason-react.js
   shared_native_demo
+  universal-portal.server
   universal-portal.shared_native)
  (preprocess
-  (pps server-reason-react.ppx)))
+  (pps server-reason-react.ppx server-reason-react.melange_ppx)))
 
 (rule
  (alias server)
