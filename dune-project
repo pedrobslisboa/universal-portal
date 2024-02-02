@@ -26,6 +26,7 @@
   (reason
    (>= 3.10.0))
   melange
+  melange-webapi
   dream
   lambdasoup
   (reason-react
