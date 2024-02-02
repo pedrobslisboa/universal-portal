@@ -20,7 +20,7 @@ module AppWithPortalCleaner = {
     <div id="root">
       {"Hello World" |> React.string}
       <UniversalPortal_Shared.Portal selector="body">
-        {React.string("Portal Content")}
+      <div>{React.string("Portal Content")}</div>
       </UniversalPortal_Shared.Portal>
     </div>;
   };
@@ -32,7 +32,7 @@ Expect.(
       <div id="root">
         {"Hello World" |> React.string}
         <UniversalPortal_Shared.Portal selector="body">
-          {React.string("Portal Content")}
+          <div>{React.string("Portal Content")}</div>
         </UniversalPortal_Shared.Portal>
       </div>;
 
@@ -47,7 +47,7 @@ Expect.(
       )
       |> expect
       |> toBe(
-           "<div><div id=\"root\">Hello World</div></div><div id=\"universal-portal\">Portal Content</div>",
+           "<div><div id=\"root\">Hello World</div></div><div>Portal Content</div>",
          );
     });
 
@@ -65,7 +65,7 @@ Expect.(
           |> expect
           |> not
           |> toBe(
-               "<div><div id=\"root\">Hello World</div></div><div id=\"universal-portal\">Portal Content</div>",
+               "<div><div id=\"root\">Hello World</div></div><div>Portal Content</div>",
              );
 
         ();

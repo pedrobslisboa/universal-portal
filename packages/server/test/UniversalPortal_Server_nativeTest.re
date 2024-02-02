@@ -37,12 +37,12 @@ let collectPortal =
       );
       Alcotest.(check(string))(
         "portal content",
-        "<div id=\"universal-portal\"><div>Hello</div></div>",
+        "<div>Hello</div>",
         ReactDOM.renderToStaticMarkup(portals^[0].content),
       );
       Alcotest.(check(string))(
         "portal content",
-        "<div id=\"universal-portal\"><div>World!</div></div>",
+        "<div>World!</div>",
         ReactDOM.renderToStaticMarkup(portals^[1].content),
       );
     },
@@ -79,7 +79,7 @@ let appendPortal =
 
       Alcotest.(check(string))(
         "portal selector",
-        "<body data-reactroot><div></div><div id=\"portal-root\"><div data-reactroot id=\"universal-portal\"><div>World!</div></div></div><div data-reactroot id=\"universal-portal\"><div>Hello</div></div></body>",
+        "<body data-reactroot><div></div><div id=\"portal-root\"><div data-universal-portal=\"\" data-reactroot>World!</div></div><div data-universal-portal=\"\" data-reactroot>Hello</div></body>",
         html,
       );
     },

@@ -12,14 +12,14 @@ external slice: nodeList => array(element) = "Array.prototype.slice.call";
 let removeServerPortals = () => {
   Array.iter(
     element => {remove(element)},
-    slice(querySelectorAll("#universal-portal")),
+    slice(querySelectorAll("[data-universal-portal]")),
   );
 };
 
 let%browser_only isClient = () => true;
 
-let canUseDom = id =>
-  try(isClient(id)) {
+let canUseDom = () =>
+  try(isClient()) {
   | _ => false
   };
 
@@ -37,7 +37,7 @@ module Portal = {
 
     let createPortal = domElement =>
       ReactDOM.createPortal(
-        <div id="universal-portal"> children </div>,
+        children,
         domElement,
       );
 
@@ -52,10 +52,7 @@ module Portal = {
     );
 
     if (!canUseDom()) {
-      context({
-        selector,
-        content: <div id="universal-portal"> children </div>,
-      });
+      context({selector, content: children});
     };
 
     switch (portalNode) {
