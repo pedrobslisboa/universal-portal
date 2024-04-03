@@ -14,6 +14,7 @@ depends: [
   "melange-webapi"
   "dream"
   "lambdasoup"
+  "reason-react-ppx"
   "reason-react" {>= "0.13.0"}
   "alcotest" {with-test}
   "alcotest-lwt" {with-test}
@@ -39,6 +40,3 @@ build: [
   ]
 ]
 dev-repo: "git+https://github.com/pedrobslisboa/universal-portal.git"
-pin-depends: [
-  ["reason-react-ppx.dev" "https://github.com/reasonml/reason-react.git#0ccff71796b60d6c32ab6cf01e31beccca4698b9"]
-]

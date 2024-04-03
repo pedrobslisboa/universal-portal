@@ -48,7 +48,7 @@ format-check:
 pin:
 	opam install dune.3.10.0
 	opam pin add melange.dev "https://github.com/melange-re/melange.git#2ff08be262f113fc8d28b66c272502c6f403399c" -y
-	opam pin add reason-react-ppx.dev "https://github.com/reasonml/reason-react.git#0ccff71796b60d6c32ab6cf01e31beccca4698b9" -y
+	opam pin add reason-react-ppx.dev "https://github.com/reasonml/reason-react.git#3971e42df555f3c8fb5b4eab94a26e8e51d79f02" -y
 	opam pin add server-reason-react.dev "https://github.com/reasonml/reason-react.git#0ccff71796b60d6c32ab6cf01e31beccca4698b9" -y
 	opam pin add reason-react.dev "https://github.com/reasonml/reason-react.git#3971e42df555f3c8fb5b4eab94a26e8e51d79f02" -y
 	opam pin add melange-webapi.dev "git+https://github.com/melange-community/melange-webapi.git#master" -y
