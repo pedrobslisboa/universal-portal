@@ -28,9 +28,11 @@
   melange
   melange-webapi
   dream
+  quickjs
+  server-reason-react
+  reason-react-ppx
   lambdasoup
-  (reason-react
-   (>= 0.13.0))
+  reason-react
   ;; Test dependencies
   (alcotest :with-test)
   (alcotest-lwt :with-test)

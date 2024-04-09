@@ -13,9 +13,11 @@ depends: [
   "melange"
   "melange-webapi"
   "dream"
-  "lambdasoup"
+  "quickjs"
+  "server-reason-react"
   "reason-react-ppx"
-  "reason-react" {>= "0.13.0"}
+  "lambdasoup"
+  "reason-react"
   "alcotest" {with-test}
   "alcotest-lwt" {with-test}
   "fmt" {with-test}
@@ -40,3 +42,9 @@ build: [
   ]
 ]
 dev-repo: "git+https://github.com/pedrobslisboa/universal-portal.git"
+pin-depends: [
+  ["quickjs.0.1.1" "git+https://github.com/ml-in-barcelona/quickjs.ml#0.1.1"]
+  ["reason-react.dev" "git+https://github.com/reasonml/reason-react#0.14.0"]
+  ["reason-react-ppx.dev" "git+https://github.com/reasonml/reason-react#0.14.0"]
+  ["server-reason-react.0.1.0" "git+https://github.com/ml-in-barcelona/server-reason-react#0.1.0"]
+]

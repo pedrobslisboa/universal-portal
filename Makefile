@@ -44,24 +44,22 @@ format:
 format-check:
 	$(DUNE) build @fmt
 
-.PHONY: pin
-pin:
-	opam install dune.3.10.0
-	opam pin add melange.dev "https://github.com/melange-re/melange.git#2ff08be262f113fc8d28b66c272502c6f403399c" -y
-	opam pin add reason-react-ppx.dev "https://github.com/reasonml/reason-react.git#3971e42df555f3c8fb5b4eab94a26e8e51d79f02" -y
-	opam pin add server-reason-react.dev "https://github.com/reasonml/reason-react.git#0ccff71796b60d6c32ab6cf01e31beccca4698b9" -y
-	opam pin add reason-react.dev "https://github.com/reasonml/reason-react.git#3971e42df555f3c8fb5b4eab94a26e8e51d79f02" -y
-	opam pin add melange-webapi.dev "git+https://github.com/melange-community/melange-webapi.git#master" -y
-
 .PHONY: create-switch
-create-switch:
-	opam switch create . 5.1.0 --deps-only --with-test -y
+create-switch: ## Create opam switch
+	opam switch create . 5.1.1 --deps-only --with-test -y
 
 .PHONY: install
-install: create-switch pin
+install:
+	$(DUNE) build @install
+	opam install . --deps-only --with-test
+	cd demo && yarn install
+
+.PHONY: pin
+pin: ## Pin dependencies
+	@opam pin add -y quickjs "https://github.com/ml-in-barcelona/quickjs.ml.git#0.1.1"
 
 .PHONY: init
-init: install
+init: create-switch pin install ## Create a local dev enviroment
 
 .PHONY: demo
 demo: build
