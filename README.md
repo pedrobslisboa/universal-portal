@@ -25,7 +25,7 @@ This project was inspired by [server-reason-react](https://github.com/ml-in-barc
 ## Installation
 
 ```sh
-opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-portal.git#main"
+opam install universal-portal
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-po
 ```reason
   Dream.router([
     Dream.get("/", _request => {
-      let portals: ref(array(UniversalPortal_Shared.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Components.Portal.portal)) = ref([||]);
 
       let element =
         ReactDOM.renderToString(
@@ -43,7 +43,7 @@ opam pin add universal-portal.dev "https://github.com/pedrobslisboa/universal-po
             <Page scripts=["/static/app.js"]>
               <Shared_native_demo.App />
             </Page>,
-            (collectedPortal: UniversalPortal_Shared.portal) => {
+            (collectedPortal: UniversalPortal_Shared.Components.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
@@ -81,31 +81,24 @@ Use `UniversalPortal_Shared` and it will work on both client and native content.
 [@react.component]
 let make = () => {
   <div>
-    <UniversalPortal_Shared.Portal selector="body">
+    <UniversalPortal_Shared.Components.Portal selector="body">
       <div>
         {"Hey, I'm a portal, disable JS on your dev tools and check that I'll still here"
           |> React.string}
       </div>
-    </UniversalPortal_Shared.Portal>
+    </UniversalPortal_Shared.Components.Portal>
   </div>;
 };
 ```
 
 #### Cleaning server side portals
 
-You must call the `UniversalPortal_Shared.removeServerPortals` at the main entry point of your app, so it will remove all the server side portals.
+You must call the `UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make` at the main entry point of your app, so it will remove all the server side portals.
 
 Checkout the demo for more details: [Demo](/demo/shared/native/App.re#L3-L9)
 
 ```reason
-  React.useEffect1(
-    () => {
-      UniversalPortal_Shared.removeServerPortals();
-
-      None;
-    },
-    [||],
-  );
+  UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make();
 ```
 
 ## Running the demo
