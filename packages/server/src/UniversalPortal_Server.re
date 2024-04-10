@@ -2,12 +2,12 @@ module PortalCollector = {
   module Provider = {
     include React.Context;
     let make =
-      React.Context.provider(UniversalPortal_Shared.portalCollectorContext);
+      React.Context.provider(UniversalPortal_Shared.Components.Portal.portalCollectorContext);
   };
 
   [@react.component]
   let make =
-      (~children, ~collectPortal: UniversalPortal_Shared.portal => unit) => {
+      (~children, ~collectPortal: UniversalPortal_Shared.Components.Portal.portal => unit) => {
     let value = {
       collectPortal;
     };
@@ -17,11 +17,11 @@ module PortalCollector = {
 };
 
 let appendUniversalPortals =
-    (html, portals: array(UniversalPortal_Shared.portal)) => {
+    (html, portals: array(UniversalPortal_Shared.Components.Portal.portal)) => {
   let soup = html |> Soup.parse;
 
   Array.iter(
-    (portal: UniversalPortal_Shared.portal) => {
+    (portal: UniversalPortal_Shared.Components.Portal.portal) => {
       let markup = portal.content |> ReactDOM.renderToString |> Soup.parse;
 
       switch (soup |> Soup.select_one(portal.selector)) {
