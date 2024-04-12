@@ -39,11 +39,7 @@ let appendUniversalPortals =
 
   let elementValue = soup |> Soup.to_string;
 
-  Str.global_replace(
-    Str.regexp("data-reactroot=\"\""),
-    "data-reactroot",
-    elementValue,
-  );
+  elementValue;
 };
 
 let collectPortals = (element, callback) => {

@@ -79,7 +79,7 @@ let appendPortal =
 
       Alcotest.(check(string))(
         "portal selector",
-        "<body data-reactroot><div></div><div id=\"portal-root\"><div data-universal-portal=\"\" data-reactroot>World!</div></div><div data-universal-portal=\"\" data-reactroot>Hello</div></body>",
+        "<body><div></div><div id=\"portal-root\"><div data-universal-portal=\"\">World!</div></div><div data-universal-portal=\"\">Hello</div></body>",
         html,
       );
     },
