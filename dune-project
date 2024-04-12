@@ -29,12 +29,9 @@
   melange-webapi
   dream
   quickjs
-  (reason-react-ppx
-   (>= 0.14.0))
-  (reason-react
-   (>= 0.14.0))
+  (reason-react-ppx (>= 0.14.0))
+  (reason-react (>= 0.14.0))
   lambdasoup
-  reason-react
   ;; Test dependencies
   (alcotest :with-test)
   (alcotest-lwt :with-test)
