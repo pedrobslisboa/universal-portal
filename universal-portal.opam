@@ -14,10 +14,10 @@ depends: [
   "melange-webapi"
   "dream"
   "quickjs"
-  "server-reason-react"
-  "reason-react-ppx"
+  "server-reason-react" {>= "0.2.0"}
+  "reason-react-ppx" {>= "0.14.0"}
+  "reason-react" {>= "0.14.0"}
   "lambdasoup"
-  "reason-react"
   "alcotest" {with-test}
   "alcotest-lwt" {with-test}
   "fmt" {with-test}
@@ -25,7 +25,6 @@ depends: [
   "melange-testing-library" {with-test}
   "melange-jest" {with-test}
   "ocaml-lsp-server" {with-test}
-  "odoc" {with-doc}
 ]
 build: [
   ["dune" "subst"] {dev}
@@ -46,5 +45,5 @@ pin-depends: [
   ["quickjs.0.1.1" "git+https://github.com/ml-in-barcelona/quickjs.ml#0.1.1"]
   ["reason-react.0.14.0" "git+https://github.com/reasonml/reason-react#0.14.0"]
   ["reason-react-ppx.0.14.0" "git+https://github.com/reasonml/reason-react#0.14.0"]
-  ["server-reason-react.0.1.0" "git+https://github.com/ml-in-barcelona/server-reason-react#0.1.0"]
+  ["server-reason-react.0.2.0" "git+https://github.com/ml-in-barcelona/server-reason-react#0.2.0"]
 ]
