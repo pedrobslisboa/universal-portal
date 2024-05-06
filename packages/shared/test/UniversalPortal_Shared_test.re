@@ -8,25 +8,25 @@ open DomTestingLibrary;
 module AppWithPortalCleaner = {
   [@react.component]
   let make = () => {
-    UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make();
+    UniversalPortal_Js.useRemoveServerPortals();
 
     <div id="root">
       {"Hello World" |> React.string}
-      <UniversalPortal_Shared.Components.Portal selector="body">
-      <div>{React.string("Portal Content")}</div>
-      </UniversalPortal_Shared.Components.Portal>
+      <UniversalPortal_Shared.Portal selector="body">
+        <div> {React.string("Portal Content")} </div>
+      </UniversalPortal_Shared.Portal>
     </div>;
   };
 };
 
 Expect.(
-  describe("UniversalPortal_Shared.Components", () => {
+  describe("UniversalPortal_Shared.", () => {
     let portalComponent =
       <div id="root">
         {"Hello World" |> React.string}
-        <UniversalPortal_Shared.Components.Portal selector="body">
-          <div>{React.string("Portal Content")}</div>
-        </UniversalPortal_Shared.Components.Portal>
+        <UniversalPortal_Shared.Portal selector="body">
+          <div> {React.string("Portal Content")} </div>
+        </UniversalPortal_Shared.Portal>
       </div>;
 
     test("getByLabelText works", () => {

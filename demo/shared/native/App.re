@@ -1,9 +1,7 @@
 [@react.component]
 let make = () => {
-  UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make();
-
   <div>
-    <UniversalPortal_Shared.Components.Portal selector="body">
+    <UniversalPortal_Shared.Portal selector="body">
       <div
         style={ReactDOM.Style.make(
           ~position="absolute",
@@ -29,6 +27,6 @@ let make = () => {
            |> React.string}
         </div>
       </div>
-    </UniversalPortal_Shared.Components.Portal>
+    </UniversalPortal_Shared.Portal>
   </div>;
 };

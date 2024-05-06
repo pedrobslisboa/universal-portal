@@ -3,23 +3,24 @@ let collectPortal =
     "should collect portals",
     `Quick,
     () => {
-      let portals: ref(array(UniversalPortal_Shared.Components.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) =
+        ref([||]);
 
       let _ =
         ReactDOM.renderToString(
           UniversalPortal_Server.collectPortals(
             <body>
               <div>
-                <UniversalPortal_Shared.Components.Portal selector="body">
+                <UniversalPortal_Shared.Portal selector="body">
                   <div> {React.string("Hello")} </div>
-                </UniversalPortal_Shared.Components.Portal>
-                <UniversalPortal_Shared.Components.Portal selector="#portal-root">
+                </UniversalPortal_Shared.Portal>
+                <UniversalPortal_Shared.Portal selector="#portal-root">
                   <div> {React.string("World!")} </div>
-                </UniversalPortal_Shared.Components.Portal>
+                </UniversalPortal_Shared.Portal>
               </div>
               <div id="portal-root" />
             </body>,
-            (collectedPortal: UniversalPortal_Shared.Components.Portal.portal) => {
+            (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
@@ -53,23 +54,24 @@ let appendPortal =
     "should append portals",
     `Quick,
     () => {
-      let portals: ref(array(UniversalPortal_Shared.Components.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) =
+        ref([||]);
 
       let element =
         ReactDOM.renderToString(
           UniversalPortal_Server.collectPortals(
             <body>
               <div>
-                <UniversalPortal_Shared.Components.Portal selector="body">
+                <UniversalPortal_Shared.Portal selector="body">
                   <div> {React.string("Hello")} </div>
-                </UniversalPortal_Shared.Components.Portal>
-                <UniversalPortal_Shared.Components.Portal selector="#portal-root">
+                </UniversalPortal_Shared.Portal>
+                <UniversalPortal_Shared.Portal selector="#portal-root">
                   <div> {React.string("World!")} </div>
-                </UniversalPortal_Shared.Components.Portal>
+                </UniversalPortal_Shared.Portal>
               </div>
               <div id="portal-root" />
             </body>,
-            (collectedPortal: UniversalPortal_Shared.Components.Portal.portal) => {
+            (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
@@ -85,4 +87,4 @@ let appendPortal =
     },
   );
 
-let tests = ("cloneElement", [collectPortal, appendPortal]);
+let tests = ("Server", [collectPortal, appendPortal]);

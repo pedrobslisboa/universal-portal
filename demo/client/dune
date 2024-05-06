@@ -5,8 +5,10 @@
  (libraries
   melange
   shared_js_demo
+  js
   reason-react
   melange-webapi
+  universal-portal.js
   universal-portal.shared_js)
  (preprocess
   (pps reason-react-ppx melange.ppx server-reason-react.browser_ppx))

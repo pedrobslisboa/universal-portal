@@ -4,6 +4,7 @@
  (libraries
   melange-webapi
   universal-portal.shared_js
+  universal-portal.js
   melange-testing-library.dom
   melange-testing-library.react
   melange-jest.jest

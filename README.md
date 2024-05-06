@@ -35,7 +35,7 @@ opam install universal-portal
 ```reason
   Dream.router([
     Dream.get("/", _request => {
-      let portals: ref(array(UniversalPortal_Shared.Components.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
 
       let element =
         ReactDOM.renderToString(
@@ -43,7 +43,7 @@ opam install universal-portal
             <Page scripts=["/static/app.js"]>
               <Shared_native_demo.App />
             </Page>,
-            (collectedPortal: UniversalPortal_Shared.Components.Portal.portal) => {
+            (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
@@ -81,12 +81,12 @@ Use `UniversalPortal_Shared` and it will work on both client and native content.
 [@react.component]
 let make = () => {
   <div>
-    <UniversalPortal_Shared.Components.Portal selector="body">
+    <UniversalPortal_Shared.Portal selector="body">
       <div>
         {"Hey, I'm a portal, disable JS on your dev tools and check that I'll still here"
           |> React.string}
       </div>
-    </UniversalPortal_Shared.Components.Portal>
+    </UniversalPortal_Shared.Portal>
   </div>;
 };
 ```

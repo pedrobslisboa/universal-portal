@@ -1,0 +1,8 @@
+(library
+ (name js)
+ (public_name universal-portal.js)
+ (modes melange)
+ (wrapped false)
+ (libraries reason-react melange-webapi)
+ (preprocess
+  (pps melange.ppx reason-react-ppx server-reason-react.browser_ppx -js)))

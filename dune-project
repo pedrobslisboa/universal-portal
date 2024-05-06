@@ -29,8 +29,10 @@
   melange-webapi
   dream
   quickjs
-  (reason-react-ppx (>= 0.14.0))
-  (reason-react (>= 0.14.0))
+  (reason-react-ppx
+   (>= 0.14.0))
+  (reason-react
+   (>= 0.14.0))
   lambdasoup
   ;; Test dependencies
   (alcotest :with-test)
@@ -42,9 +44,7 @@
     (= 0.26.1)
     :with-test))
   (server-reason-react
-   (and
-    (>= 0.2.0)
-    :with-test))
+   (= 0.2.0))
   (melange-testing-library :with-test)
   (melange-jest :with-test)
   (ocaml-lsp-server :with-test)))

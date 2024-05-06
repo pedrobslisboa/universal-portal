@@ -50,7 +50,7 @@ module Page = {
 let handler =
   Dream.router([
     Dream.get("/", _request => {
-      let portals: ref(array(UniversalPortal_Shared.Components.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
 
       let element =
         ReactDOM.renderToString(
@@ -58,7 +58,7 @@ let handler =
             <Page scripts=["/static/app.js"]>
               <Shared_native_demo.App />
             </Page>,
-            (collectedPortal: UniversalPortal_Shared.Components.Portal.portal) => {
+            (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
