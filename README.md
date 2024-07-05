@@ -93,12 +93,12 @@ let make = () => {
 
 #### Cleaning server side portals
 
-You must call the `UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make` at the main entry point of your app, so it will remove all the server side portals.
+You must call the `UniversalPortal_Js.useRemoveServerPortals` at the main entry point of your app, so it will remove all the server side portals.
 
 Checkout the demo for more details: [Demo](/demo/shared/native/App.re#L3-L9)
 
 ```reason
-  UniversalPortal_Shared.Hooks.UseRemoveServerPortals.make();
+  UniversalPortal_Js.useRemoveServerPortals();
 ```
 
 ## Running the demo
