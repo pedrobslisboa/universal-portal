@@ -25,8 +25,7 @@ let make = (~children, ~selector) => {
   switch%platform (Runtime.platform) {
   | Client =>
     // Portal doesn't need to be collected on the client
-    context
-    |> ignore
+    context |> ignore
   | Server => context({selector, content: children})
   };
 

@@ -50,7 +50,8 @@ module Page = {
 let handler =
   Dream.router([
     Dream.get("/", _request => {
-      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) =
+        ref([||]);
 
       let element =
         ReactDOM.renderToString(
