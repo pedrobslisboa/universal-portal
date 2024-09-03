@@ -13,7 +13,7 @@ depends: [
   "melange"
   "melange-webapi"
   "dream"
-  "quickjs"
+  "quickjs" {>= "0.1.2"}
   "reason-react-ppx" {>= "0.14.0"}
   "reason-react" {>= "0.14.0"}
   "lambdasoup"
@@ -21,7 +21,7 @@ depends: [
   "alcotest-lwt" {with-test}
   "fmt" {with-test}
   "ocamlformat" {= "0.26.1" & with-test}
-  "server-reason-react" {= "0.2.0"}
+  "server-reason-react" {= "0.3.1"}
   "melange-testing-library" {with-test}
   "melange-jest" {with-test}
   "ocaml-lsp-server" {with-test}

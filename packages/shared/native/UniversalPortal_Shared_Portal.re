@@ -4,33 +4,39 @@ type portal = {
 };
 let portalCollectorContext = React.createContext((_: portal) => ());
 
-[@react.component]
-let make = (~children, ~selector) => {
-  let context = React.useContext(portalCollectorContext);
-  let (portalNode, setPortalNode) = React.useState(() => None);
+// Js component that renders a portal
+[@platform js]
+include {
+          [@react.component]
+          let make = (~children, ~selector) => {
+            let (portalNode, setPortalNode) = React.useState(() => None);
 
-  let createPortal = domElement =>
-    ReactDOM.createPortal(children, domElement);
+            let createPortal = domElement =>
+              ReactDOM.createPortal(children, domElement);
 
-  React.useEffect1(
-    () => {
-      let domElement = ReactDOM.querySelector(selector);
-      setPortalNode(_ => domElement);
+            React.useEffect(() => {
+              let domElement = ReactDOM.querySelector(selector);
+              setPortalNode(_ => domElement);
 
-      None;
-    },
-    [||],
-  );
+              None;
+            });
 
-  switch%platform (Runtime.platform) {
-  | Client =>
-    // Portal doesn't need to be collected on the client
-    context |> ignore
-  | Server => context({selector, content: children})
-  };
+            switch (portalNode) {
+            | Some(node) => createPortal(node)
+            | _ => React.null
+            };
+          };
+        };
 
-  switch (portalNode) {
-  | Some(node) => createPortal(node)
-  | _ => React.null
-  };
-};
+// Native component that collects the portals
+[@platform native]
+include {
+          [@react.component]
+          let make = (~children, ~selector) => {
+            let context = React.useContext(portalCollectorContext);
+
+            context({selector, content: children});
+
+            React.null;
+          };
+        };

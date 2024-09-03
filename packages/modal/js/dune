@@ -1,0 +1,10 @@
+(library
+ (name shared_js)
+ (public_name universal-portal.modal.js)
+ (modes melange)
+ (wrapped false)
+ (libraries universal-portal.shared_js reason-react melange-webapi)
+ (preprocess
+  (pps melange.ppx reason-react-ppx server-reason-react.browser_ppx -js)))
+
+(copy_files# "../native/*.re")

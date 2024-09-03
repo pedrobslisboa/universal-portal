@@ -52,3 +52,21 @@ let collectPortals = (element, callback) => {
     element
   </PortalCollector>;
 };
+
+let withPortals = element => {
+  let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
+
+  let element =
+    ReactDOM.renderToString(
+      collectPortals(
+        element, (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
+        portals := Array.append(portals^, [|collectedPortal|])
+      }),
+    );
+
+  let html = appendUniversalPortals(element, portals^);
+
+  portals := [||];
+
+  html;
+};

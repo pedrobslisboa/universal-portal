@@ -1,0 +1,16 @@
+(library
+ (name shared_native)
+ (public_name universal-portal.modal.native)
+ (modules :standard)
+ (libraries
+  universal-portal.shared_native
+  server-reason-react.react
+  server-reason-react.reactDom)
+ (wrapped false)
+ (preprocess
+  (pps
+   server-reason-react.ppx
+   server-reason-react.browser_ppx
+   server-reason-react.melange_ppx)))
+
+(copy_files# "../*.re")

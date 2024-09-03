@@ -28,7 +28,7 @@
   melange
   melange-webapi
   dream
-  quickjs
+  (quickjs (>= 0.1.2))
   (reason-react-ppx
    (>= 0.14.0))
   (reason-react
@@ -44,7 +44,7 @@
     (= 0.26.1)
     :with-test))
   (server-reason-react
-   (= 0.2.0))
+   (= 0.3.1))
   (melange-testing-library :with-test)
   (melange-jest :with-test)
   (ocaml-lsp-server :with-test)))
