@@ -1,9 +1,9 @@
 module App = {
   [@react.component]
   let make = () => {
-    UniversalPortal_Js.useRemoveServerPortals();
+    UniversalPortal.UseRemoveServerPortals.make();
 
-    <Shared_js_demo.App />;
+    <App />;
   };
 };
 

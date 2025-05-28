@@ -1,3 +1,14 @@
+(include_subdirs unqualified)
+
+(melange.emit
+ (alias client)
+ (target entry_point)
+ (modules client_entry_point app)
+ (libraries melange reason-react melange-webapi universal-portal)
+ (preprocess
+  (pps reason-react-ppx melange.ppx server-reason-react.browser_ppx))
+ (module_systems commonjs))
+
 (executable
  (name server)
  (libraries
@@ -6,9 +17,7 @@
   server-reason-react.react
   server-reason-react.reactDom
   server-reason-react.js
-  shared_native_demo
-  universal-portal.server
-  universal-portal.shared_native)
+  universal-portal)
  (preprocess
   (pps server-reason-react.ppx server-reason-react.melange_ppx)))
 

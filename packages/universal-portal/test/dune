@@ -3,8 +3,7 @@
  (alias test)
  (libraries
   melange-webapi
-  universal-portal.shared_js
-  universal-portal.js
+  universal-portal
   melange-testing-library.dom
   melange-testing-library.react
   melange-jest.jest
