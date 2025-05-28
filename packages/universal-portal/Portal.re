@@ -35,7 +35,10 @@ include {
           let make = (~children, ~selector) => {
             let context = React.useContext(portalCollectorContext);
 
-            context({selector, content: children});
+            context({
+              selector,
+              content: children,
+            });
 
             React.null;
           };

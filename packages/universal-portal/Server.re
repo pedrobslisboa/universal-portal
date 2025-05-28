@@ -1,18 +1,11 @@
 module PortalCollector = {
   module Provider = {
     include React.Context;
-    let make =
-      React.Context.provider(
-        UniversalPortal_Shared.Portal.portalCollectorContext,
-      );
+    let make = React.Context.provider(Portal.portalCollectorContext);
   };
 
   [@react.component]
-  let make =
-      (
-        ~children,
-        ~collectPortal: UniversalPortal_Shared.Portal.portal => unit,
-      ) => {
+  let make = (~children, ~collectPortal: Portal.portal => unit) => {
     let value = {
       collectPortal;
     };
@@ -21,12 +14,12 @@ module PortalCollector = {
   };
 };
 
-let appendUniversalPortals =
-    (html, portals: array(UniversalPortal_Shared.Portal.portal)) => {
+[@platform native]
+let appendUniversal_Portals = (html, portals: array(Portal.portal)) => {
   let soup = html |> Soup.parse;
 
   Array.iter(
-    (portal: UniversalPortal_Shared.Portal.portal) => {
+    (portal: Portal.portal) => {
       let markup = portal.content |> ReactDOM.renderToString |> Soup.parse;
 
       switch (soup |> Soup.select_one(portal.selector)) {
@@ -47,24 +40,25 @@ let appendUniversalPortals =
   elementValue;
 };
 
+[@platform native]
 let collectPortals = (element, callback) => {
   <PortalCollector collectPortal={newValue => {callback(newValue)}}>
     element
   </PortalCollector>;
 };
 
+[@platform native]
 let withPortals = element => {
-  let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
+  let portals: ref(array(Portal.portal)) = ref([||]);
 
   let element =
     ReactDOM.renderToString(
-      collectPortals(
-        element, (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
+      collectPortals(element, (collectedPortal: Portal.portal) => {
         portals := Array.append(portals^, [|collectedPortal|])
       }),
     );
 
-  let html = appendUniversalPortals(element, portals^);
+  let html = (element, portals^);
 
   portals := [||];
 

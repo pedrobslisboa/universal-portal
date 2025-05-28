@@ -60,4 +60,4 @@ init: create-switch pin install ## Create a local dev enviroment
 .PHONY: demo
 demo: build
 	yarn webpack
-	$(DUNE) exec demo/server/server.exe
+	$(DUNE) exec demo/server.exe

@@ -35,21 +35,21 @@ opam install universal-portal
 ```reason
   Dream.router([
     Dream.get("/", _request => {
-      let portals: ref(array(UniversalPortal_Shared.Portal.portal)) = ref([||]);
+      let portals: ref(array(UniversalPortal.Portal.portal)) = ref([||]);
 
       let element =
         ReactDOM.renderToString(
-          UniversalPortal_Server.collectPortals(
+          Universal_Portal_Server.collectPortals(
             <Page scripts=["/static/app.js"]>
               <Shared_native_demo.App />
             </Page>,
-            (collectedPortal: UniversalPortal_Shared.Portal.portal) => {
+            (collectedPortal: UniversalPortal.Portal.portal) => {
             portals := Array.append(portals^, [|collectedPortal|])
           }),
         );
 
       let html =
-        UniversalPortal_Server.appendUniversalPortals(element, portals^);
+        Universal_Portal_Server.appendUniversal_Portals(element, portals^);
 
       portals := [||];
 
@@ -64,41 +64,41 @@ opam install universal-portal
 #### For client dune config add
 
 ```dune
- (libraries universal-portal.shared_js)
+ (libraries universal-portal)
 ```
 
 #### For native dune config add
 
 ```dune
- (libraries universal-portal.shared_native)
+ (libraries universal-portal)
 ```
 
 #### Component
 
-Use `UniversalPortal_Shared` and it will work on both client and native content.
+Use `Shared` and it will work on both client and native content.
 
 ```reason
 [@react.component]
 let make = () => {
   <div>
-    <UniversalPortal_Shared.Portal selector="body">
+    <UniversalPortal.Portal selector="body">
       <div>
         {"Hey, I'm a portal, disable JS on your dev tools and check that I'll still here"
           |> React.string}
       </div>
-    </UniversalPortal_Shared.Portal>
+    </UniversalPortal.Portal>
   </div>;
 };
 ```
 
 #### Cleaning server side portals
 
-You must call the `UniversalPortal_Js.useRemoveServerPortals` at the main entry point of your app, so it will remove all the server side portals.
+You must call the `Universal_Portal_Js.useRemoveServerPortals` at the main entry point of your app, so it will remove all the server side portals.
 
 Checkout the demo for more details: [Demo](/demo/shared/native/App.re#L3-L9)
 
 ```reason
-  UniversalPortal_Js.useRemoveServerPortals();
+  Universal_Portal_Js.useRemoveServerPortals();
 ```
 
 ## Running the demo

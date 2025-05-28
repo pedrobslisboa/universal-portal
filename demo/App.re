@@ -1,7 +1,7 @@
 [@react.component]
 let make = () => {
   <div>
-    <UniversalPortal_Shared.Portal selector="body">
+    <UniversalPortal.Portal selector="body">
       <div
         style={ReactDOM.Style.make(
           ~position="absolute",
@@ -27,6 +27,6 @@ let make = () => {
            |> React.string}
         </div>
       </div>
-    </UniversalPortal_Shared.Portal>
+    </UniversalPortal.Portal>
   </div>;
 };
